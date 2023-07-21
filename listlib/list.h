@@ -4,9 +4,20 @@ typedef struct node_t {
 	struct node_t *prev;
 } Node;
 
-Node *L_append(int);
-void L_pop(int);
-Node *L_indexof(int val);
-int L_length(void);
-void L_clear(void);
-int L_get(int);
+typedef struct list_t {
+	Node *head;
+	Node *last;
+	int length;
+} List;
+
+typedef List* Lptr;
+
+void L_init(Lptr);
+void L_append(Lptr, int);
+void L_pop(Lptr, int);
+int L_indexof(Lptr, int);
+int L_length(Lptr);
+void L_clear(Lptr);
+int L_get(Lptr, int);
+int L_randomchoice(Lptr);
+void L_print(Lptr);
